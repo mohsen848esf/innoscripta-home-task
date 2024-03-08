@@ -1,6 +1,11 @@
 # React + TypeScript + Vite Template
 
 This template offers a minimal setup for a React project using TypeScript and Vite, with additional features like Tailwind CSS for styling, filtering options, and search functionality.
+1. [Project Features](#project-features)
+2. [Usage Instructions](#usage-instructions)
+3. [Running with Docker](#running-with-docker)
+4. [Running with NPM](#running-with-npm)
+
 
 ## Project Features
 
@@ -28,11 +33,20 @@ This template offers a minimal setup for a React project using TypeScript and Vi
 4. **Pagination:**
    - Navigate through pages by clicking on the page number.
 
-5. **Running with Docker:**
+
+## Running with Docker
+
+- Before running the project with Docker, ensure that you have Docker installed on your system. If not, you can follow the installation instructions [here](https://docs.docker.com/get-docker/).
+- To set up your environment for running the project, execute the following commands to pull the required Docker images:
+
+```bash
+docker pull node:20-alpine
+docker pull nginx:1.23.1-alpine
+```
    - Execute `docker-compose up` in the terminal.
    - Access the project at [http://localhost](http://localhost).
 
-6. **Running with NPM:**
+## Running with NPM:
    - Install necessary packages with `npm install`.
    - Run the project with `npm run dev`.
    - Ensure [Node.js](https://nodejs.org/en/download) is installed on your device.
