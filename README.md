@@ -1,6 +1,9 @@
 # React + TypeScript + Vite Template
 
 This template offers a minimal setup for a React project using TypeScript and Vite, with additional features like Tailwind CSS for styling, filtering options, and search functionality.
+
+## Table of Contents
+
 1. [Project Features](#project-features)
 2. [Usage Instructions](#usage-instructions)
 3. [Running with Docker](#running-with-docker)
