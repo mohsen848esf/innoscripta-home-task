@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: home-task
+    image: home-task
+    ports: 
+      - "80:80" 
+    build: 
+      context: .
