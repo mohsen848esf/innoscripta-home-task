@@ -12,12 +12,14 @@ import {
   setSearch,
   setSource,
   setTo,
-  setSavedFeed
+  setSavedFeed,
 } from "../../redux/news.slice";
 import { useGetCategoryOptions, getSavedFilters } from "../../utils/helper";
 
 const FilterBar = ({ showSwal }: any) => {
   const [categoryOptions, setCategoryOptions] = useState<TOption[]>([]);
+  const [selectedOption, setSelectedOption] = useState(null);
+
   const dispatch = useDispatch();
   const newsSliceData = useSelector((state: any) => state.news);
   useEffect(() => {
@@ -35,8 +37,19 @@ const FilterBar = ({ showSwal }: any) => {
       />
 
       <div className="flex items-center justify-between mt-4">
-        <p className="font-semibold text-gray-800">Filters</p>
+        <div className="w-5/12">
+          <SelectOption
+            name={"Save Search"}
+            options={getSavedFilters()}
+            selected={selectedOption}
+            isClearable={true}
+            handelSelect={(e: any) => {
+              setSelectedOption(e);
 
+              e && dispatch(setSavedFeed(e?.params));
+            }}
+          />
+        </div>
         <div className="flex items-center justify-between space-x-5">
           <button
             onClick={() => {
@@ -50,18 +63,8 @@ const FilterBar = ({ showSwal }: any) => {
       </div>
 
       <div className="">
+        <p className="font-semibold text-gray-800 text-left">Filters</p>
         <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4 mt-4">
-          <SelectOption
-            name={"Save Search"}
-            options={getSavedFilters()}
-            selected={null}
-            isClearable={true}
-            handelSelect={(e: any) => {
-              // setSelectedOption(e);
-
-              e && dispatch(setSavedFeed(e?.params));
-            }}
-          />
           <SelectOption
             name={"Source"}
             options={SourceOptions}
@@ -99,7 +102,7 @@ const FilterBar = ({ showSwal }: any) => {
           onClick={showSwal}
           className="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-gray-800 text-sm font-medium rounded-md"
         >
-          save
+          save filter
         </button>
         <button
           onClick={() => {
